@@ -73,7 +73,7 @@ const Footer = () => {
     { icon: "📞", text: "Contact Us" },
     { icon: "📞", text: "+91-22-68276827" },
     { icon: "💬", text: "+91-8976862090" },
-    { icon: "📍", text: "Branch Locator" },
+    { icon: "📍", text: "Shree ji Villa, 1123, Tirkha Colony, Sector 2, Faridabad, 121004" },
   ];
 
   return (
@@ -115,9 +115,19 @@ const Footer = () => {
         </div>
       </div>
 
+      {/* Disclaimer */}
+      <div className="bg-gray-100 border-t border-gray-200 py-3 text-center text-xs text-gray-500">
+        <p className="mb-1">
+          This website is created and maintained by an authorized LIC agent for informational purposes.
+        </p>
+        <p className="text-[10px] text-gray-400">
+          For official LIC information, please visit the official LIC India website.
+        </p>
+      </div>
+
       {/* Bottom Credit */}
-      <div className="bg-gray-100 border-t border-gray-200 py-4 text-center text-sm">
-        © 2025 Life Insurance Corporation of India. All rights reserved.
+      <div className="bg-gray-200 border-t border-gray-300 py-4 text-center text-sm">
+        © 2025 Brilliant Financial Consultants. All rights reserved.
       </div>
     </footer>
   );

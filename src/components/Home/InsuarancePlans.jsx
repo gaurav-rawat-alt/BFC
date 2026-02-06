@@ -142,7 +142,7 @@ const InsurancePlans = () => {
         </div>
 
         <button className="bg-[#003D82] text-white py-3 rounded-lg text-sm font-semibold w-full">
-          Buy Online
+          Buy Plan
         </button>
       </div>
     </div>
@@ -178,7 +178,7 @@ const InsurancePlans = () => {
 
       <div className="bg-[#003D82] px-6 lg:px-8 py-4 mt-auto">
         <button className="w-full flex items-center justify-center gap-2 text-white font-semibold text-sm lg:text-base hover:gap-3 transition-all">
-          Buy Online
+          Buy Plan
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
@@ -193,7 +193,7 @@ const InsurancePlans = () => {
         {/* View All */}
         <div className="flex justify-end">
           <button className="px-6 py-2.5 border-2 border-gray-300 text-gray-700 rounded-lg text-sm lg:text-base font-medium hover:border-[#003D82] hover:text-[#003D82] transition-all">
-            View All
+            Discuss More
           </button>
         </div>
 

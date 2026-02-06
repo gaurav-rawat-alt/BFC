@@ -10,30 +10,17 @@ const menu = [
     children: [
       { label: "History", path: "/about/history" },
       { label: "Objectives Of LIC", path: "/about/objectives" },
-      { label: "Mission/Vision", path: "/about/mission" },
-      { label: "Who’s who", path: "/about/whos-who" },
-      { label: "Operations", path: "/about/operations" },
       { label: "Know About Your Life Insurance", path: "/about/know-about-your-policy" },
-      { label: "Help us to serve you better", path: "/about/help" },
-      { label: "Information Technology and LIC", path: "/about/it" },
-      { label: "Awards", path: "/about/awards" },
-      { label: "Archives Awards and Achievements", path: "/about/archives-awards" },
     ],
   },
   {
     title: "Products",
     path: "/products",
     children: [
-      { label: "Insurance Plans", path: "/products/insurance-plans" },
       { label: "Endowment Plans", path: "/products/endowment-plans" },
       { label: "Whole Life Plans", path: "/products/whole-life-plans" },
       { label: "Money Back Plans", path: "/products/money-back-plans" },
       { label: "Term Assurance Plans", path: "/products/term-assurance-plans" },
-      { label: "Riders", path: "/products/riders" },
-      { label: "Pension Plans", path: "/products/pension-plans" },
-      { label: "Unit Linked Plans", path: "/products/unit-linked-plans" },
-      { label: "Micro Insurance Plans", path: "/products/micro-insurance-plans" },
-      { label: "Withdrawn Plans", path: "/products/withdrawn-plans" },
     ],
   },
   {
@@ -48,46 +35,48 @@ const menu = [
       { label: "Gratuity Plus NAV", path: "/group-business/gratuity-plus-nav" },
     ],
   },
-  {
-    title: "Customer Services",
-    path: "/customer-services",
-    children: [
-      { label: "Customer Corner", path: "/customer-services/customer-corner" },
-      { label: "Claims settlement requirements", path: "/customer-services/claims-settlement" },
-      { label: "Spurious Calls", path: "/customer-services/spurious-calls" },
-      { label: "Update Your Contact details - Offline", path: "/customer-services/update-contact" },
-      { label: "Unclaimed Amounts of Policyholders", path: "/customer-services/unclaimed-amounts" },
-      { label: "Bonus Information", path: "/customer-services/bonus-information" },
-      { label: "Policy Status", path: "/customer-services/policy-status" },
-      { label: "NRI Center", path: "/customer-services/nri-center" },
-      { label: "Phone Help Line", path: "/customer-services/phone-help-line" },
-      { label: "Insurance Selector", path: "/customer-services/insurance-selector" },
-      { label: "Policy Guidelines & Helpline", path: "/customer-services/policy-guidelines" },
-      { label: "Tax Benefit", path: "/customer-services/tax-benefit" },
-    ],
-  },
-  {
-    title: "NRI",
-    path: "/nri",
-    children: [
-      { label: "NRI Centre", path: "/nri/centre" },
-      { label: "NRI Customers", path: "/nri/customers" },
-      { label: "QuickPay-Premium", path: "/nri/quickpay" },
-      { label: "FATCA/CRS", path: "/nri/fatca-crs" },
-    ],
-  },
+  // {
+  //   title: "Customer Services",
+  //   path: "/customer-services",
+  //   children: [
+  //     { label: "Customer Corner", path: "/customer-services/customer-corner" },
+  //     { label: "Claims settlement requirements", path: "/customer-services/claims-settlement" },
+  //     { label: "Spurious Calls", path: "/customer-services/spurious-calls" },
+  //     { label: "Update Your Contact details - Offline", path: "/customer-services/update-contact" },
+  //     { label: "Unclaimed Amounts of Policyholders", path: "/customer-services/unclaimed-amounts" },
+  //     { label: "Bonus Information", path: "/customer-services/bonus-information" },
+  //     { label: "Policy Status", path: "/customer-services/policy-status" },
+  //     { label: "NRI Center", path: "/customer-services/nri-center" },
+  //     { label: "Phone Help Line", path: "/customer-services/phone-help-line" },
+  //     { label: "Insurance Selector", path: "/customer-services/insurance-selector" },
+  //     { label: "Policy Guidelines & Helpline", path: "/customer-services/policy-guidelines" },
+  //     { label: "Tax Benefit", path: "/customer-services/tax-benefit" },
+  //   ],
+  // },
+  // {
+  //   title: "NRI",
+  //   path: "/nri",
+  //   children: [
+  //     { label: "NRI Centre", path: "/nri/centre" },
+  //     { label: "NRI Customers", path: "/nri/customers" },
+  //     { label: "QuickPay-Premium", path: "/nri/quickpay" },
+  //     { label: "FATCA/CRS", path: "/nri/fatca-crs" },
+  //   ],
+  // },
 ];
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState(null);
   const [clickedIndex, setClickedIndex] = useState(null);
+  const [selectedChildIndex, setSelectedChildIndex] = useState(0);
 
 
   useEffect(() => {
   const handleClickOutside = () => {
     setClickedIndex(null);
     setOpenIndex(null);
+    setSelectedChildIndex(0); // Reset to first child when closing
   };
 
   document.addEventListener("click", handleClickOutside);
@@ -100,16 +89,32 @@ const Header = () => {
       <header className="bg-white border-b border-gray-200">
         <div className="px-4 lg:px-8 py-3 flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3">
-            <div className="bg-blue-800 text-white p-2 rounded-full flex items-center justify-center w-10 h-10">
-              <i className="fi fi-rr-shield"></i>
-            </div>
-            <div className="leading-tight">
-              <div className="text-3xl lg:text-4xl font-bold text-yellow-500 tracking-wider">
-                LIC
+          <div className="flex items-center">
+            {/* Your BFC Logo - Proper aspect ratio maintained */}
+            <img 
+              src="/images/BFC.jpg" 
+              alt="Brilliant Financial Consultant" 
+              className="h-16 lg:h-20 w-auto object-contain max-w-sm lg:max-w-md"
+              onError={(e) => {
+                // Fallback if logo not found
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'flex';
+              }}
+            />
+            <span className="text-[8px] text-gray-500">Authorized LIC Agent</span>
+            {/* Fallback logo if image doesn't load */}
+            <div className="hidden items-center gap-3">
+              <div className="bg-blue-800 text-white p-2 rounded-full flex items-center justify-center w-12 h-12">
+                <i className="fi fi-rr-briefcase text-xl"></i>
               </div>
-              <div className="text-[8px] lg:text-[9px] text-gray-800 font-medium -mt-1">
-                भारतीय जीवन बीमा निगम <br /> LIFE INSURANCE CORPORATION OF INDIA
+              <div className="leading-tight">
+                <div className="text-2xl lg:text-3xl font-bold text-blue-700 tracking-wide">
+                  BFC
+                </div>
+                <div className="text-[9px] lg:text-[10px] text-gray-700 font-medium -mt-1">
+                  BRILLIANT FINANCIAL CONSULTANT <br />
+                  <span className="text-[8px] text-gray-500">Authorized LIC Agent</span>
+                </div>
               </div>
             </div>
           </div>
@@ -121,7 +126,10 @@ const Header = () => {
     <div
       key={i}
       className="relative"
-      onMouseEnter={() => setOpenIndex(i)}     // open dropdown on hover
+      onMouseEnter={() => {
+        setOpenIndex(i);
+        setSelectedChildIndex(0); // Select first child when opening dropdown
+      }}     // open dropdown on hover
     >
       <Link
         to={item.path ?? "#"}
@@ -129,6 +137,7 @@ const Header = () => {
         onClick={(e) => {
           e.stopPropagation(); // prevent closing when clicking inside
           setOpenIndex(i); // ensure current dropdown stays open
+          setSelectedChildIndex(0); // Select first child when clicking
         }}
       >
         {item.title}
@@ -146,8 +155,13 @@ const Header = () => {
             <Link
               to={c.path}
               key={idx}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 cursor-pointer"
+              className={`block px-4 py-2 text-sm cursor-pointer transition-colors ${
+                idx === selectedChildIndex 
+                  ? 'bg-blue-50 text-blue-700 border-r-2 border-blue-500' 
+                  : 'text-gray-700 hover:bg-gray-50'
+              }`}
               onClick={() => setOpenIndex(null)} // close on click inside item
+              onMouseEnter={() => setSelectedChildIndex(idx)}
             >
               {c.label}
             </Link>
@@ -159,16 +173,6 @@ const Header = () => {
 </nav>
 
 
-
-          {/* Desktop Buttons */}
-          <div className="hidden lg:flex gap-3">
-            <button className="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2 rounded-md text-sm">
-              Pay Premium
-            </button>
-            <button className="border border-gray-300 hover:border-gray-400 px-5 py-2 rounded-md text-sm">
-              Login
-            </button>
-          </div>
 
           {/* Mobile Toggle */}
           <button className="lg:hidden p-2" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -204,14 +208,6 @@ const Header = () => {
             </div>
           ))}
 
-          <div className="mt-4 flex flex-col gap-3">
-            <button className="bg-orange-600 text-white px-5 py-2 rounded-md text-sm">
-              Pay Premium
-            </button>
-            <button className="border border-gray-300 px-5 py-2 rounded-md text-sm">
-              Login
-            </button>
-          </div>
         </div>
       )}
     </>

@@ -64,7 +64,7 @@ const SearchByCategory = () => {
               Search by category
             </h2>
             <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors lg:hidden">
-              Buy Online
+              Buy Plan
             </button>
           </div>
 
@@ -88,7 +88,7 @@ const SearchByCategory = () => {
                     </div>
                   </div>
                   <button className="text-[#0B5394] font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all">
-                    View Plans
+                    Explore Plans
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -120,7 +120,7 @@ const SearchByCategory = () => {
                       </div>
                     </div>
                     <button className="text-[#0B5394] font-semibold text-sm flex items-center gap-2 hover:gap-3 transition-all">
-                      View Plans
+                      Explore Plans
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path d="M5 12h14M12 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
@@ -129,12 +129,7 @@ const SearchByCategory = () => {
                 ))}
               </div>
 
-              {/* View All Button - Desktop Only */}
-              <div className="flex justify-end">
-                <button className="bg-white hover:bg-gray-100 text-gray-900 px-6 py-2.5 rounded-lg text-sm font-medium transition-colors">
-                  View All
-                </button>
-              </div>
+              
             </div>
 
             {/* Desktop - Online Services Sidebar */}
@@ -145,7 +140,7 @@ const SearchByCategory = () => {
                     Other Online Services
                   </h3>
                   <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-                    Buy Online
+                    Buy Plan
                   </button>
                 </div>
                 
@@ -172,7 +167,7 @@ const SearchByCategory = () => {
                 Other Online Services
               </h3>
               <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
-                Buy Online
+                Buy Plan
               </button>
             </div>
             

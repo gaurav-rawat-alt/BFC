@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-white">
       {/* Blue Header with Breadcrumb */}
       <div className="bg-blue-700 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="max-w-6xl mx-auto">
@@ -15,7 +15,7 @@ const AboutUs = () => {
       </div>
 
       {/* Main Content Container */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 pb-12">
         {/* Content Box with Yellow Left Border */}
         <div className="bg-white  border-gray-200 rounded-lg shadow-sm overflow-hidden">
           {/* Yellow Left Border + Title */}

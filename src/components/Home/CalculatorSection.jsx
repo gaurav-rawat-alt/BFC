@@ -139,7 +139,7 @@ function CalculatorSection() {
                   onClick={() => console.log("Navigate to Coverage Calculator")}
                   className="w-full md:w-auto flex items-center justify-center md:justify-start gap-2 text-blue-700 font-semibold text-sm md:text-[16px] hover:text-blue-900 transition-colors group/btn"
                 >
-                  <span>Calculate Coverage</span>
+                  <span>Discuss Coverage</span>
                   <i className="fi fi-rr-arrow-right text-lg group-hover/btn:translate-x-1 transition-transform"></i>
                 </button>
               </div>
@@ -170,7 +170,7 @@ function CalculatorSection() {
                   onClick={() => console.log("Navigate to Premium Calculator")}
                   className="w-full md:w-auto flex items-center justify-center md:justify-start gap-2 text-blue-700 font-semibold text-sm md:text-[16px] hover:text-blue-900 transition-colors group/btn"
                 >
-                  <span>Calculate Premium</span>
+                  <span>Discuss Premium</span>
                   <i className="fi fi-rr-arrow-right text-lg group-hover/btn:translate-x-1 transition-transform"></i>
                 </button>
               </div>

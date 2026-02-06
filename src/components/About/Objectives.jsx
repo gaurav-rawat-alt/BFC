@@ -6,7 +6,7 @@ const ObjectivesOfLIC = ({
   lastUpdated = "29/9/2025"
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="bg-gray-50">
       {/* Blue Header with Breadcrumb */}
       <div className="bg-blue-700 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="max-w-6xl mx-auto">
@@ -27,7 +27,7 @@ const ObjectivesOfLIC = ({
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 pb-12">
         <div className="bg-white border border-gray-200 rounded-lg shadow-sm">
           {/* Yellow Left Border + Content */}
           <div className="p-6 sm:p-8 lg:p-12">

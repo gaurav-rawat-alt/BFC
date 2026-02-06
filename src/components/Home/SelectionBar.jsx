@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SelectionBar = () => {
   const [wantTo, setWantTo] = useState('');
@@ -8,8 +9,8 @@ const SelectionBar = () => {
     <div className="bg-[#003D82] py-4 md:py-6 my-2">
       <div className="container mx-auto px-3 md:px-8">
         <div className="flex flex-wrap items-center gap-3 md:gap-6">
-
-          {/* I want to */}
+          
+{/* I want to */}
           <div className="flex-1 min-w-[160px]">
             <label htmlFor="wantTo" className="block text-white text-xs md:text-sm font-medium mb-1 md:mb-2">
               I want to
@@ -31,8 +32,6 @@ const SelectionBar = () => {
               <option value="buy-policy">Buy a Policy</option>
               <option value="renew-policy">Renew My Policy</option>
               <option value="pay-premium">Pay Premium</option>
-              <option value="register-claim">Register a Claim</option>
-              <option value="track-claim">Track My Claim</option>
             </select>
           </div>
 
@@ -57,9 +56,19 @@ const SelectionBar = () => {
               <option value="">Select</option>
               <option value="individual">Individual Customer</option>
               <option value="corporate">Corporate Client</option>
-              <option value="agent">Agent</option>
-              <option value="employee">Employee</option>
             </select>
+          </div>
+
+          {/* Contact Us Button */}
+          <div className="flex-shrink-0">
+            <div className="mb-1 md:mb-2 h-4 md:h-5"></div>
+            <Link
+              to="/contact"
+              className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-4 py-2 md:px-6 md:py-3 rounded-md transition-colors text-xs md:text-sm inline-flex items-center gap-2"
+            >
+              <i className="fi fi-rr-phone-call"></i>
+              Contact Us
+            </Link>
           </div>
 
           {/* Logo */}

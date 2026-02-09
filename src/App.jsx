@@ -4,7 +4,7 @@ import HomePage from './pages/HomePage'
 import KAYL from './pages/AboutUs/KAYL'
 import { Routes, Route } from "react-router-dom";
 import Objectives from './pages/AboutUs/Objectives';
-import ContactForm from './components/ContactUs/ContactUs';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import InsurancePlans from './pages/InsurancePlans/InsurancePlans';
@@ -16,6 +16,7 @@ import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import GroupBusiness from './pages/GroupBusiness/GroupBusiness';
 import NotFound from './components/NotFound/NotFound';
+import CommonContactForm from './components/ContactUs/ContactForm';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
         <Route path="/about/history" element={<History_ />} />
         <Route path="/about/know-about-your-policy" element={<KAYL />} />
         <Route path='/about/objectives' element={<Objectives />} />
-        <Route path="/contact" element={<ContactForm />} />
+        <Route path="/contact" element={<CommonContactForm />} />
         <Route path="/products" element={<Products />} />
         <Route path="/products/insurance-plans" element={<InsurancePlans />} />
         <Route path="/products/endowment-plans" element={<InsurancePlans />} />

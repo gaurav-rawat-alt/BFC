@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ContactForm from "../../components/ContactUs/ContactForm";
 
 const About = ({ 
   pageTitle = "About Us", 
@@ -65,6 +66,10 @@ const About = ({
                   </li>
                 ))}
               </ul>
+            </div>
+
+            <div>
+              <ContactForm />
             </div>
 
             {/* Bottom Section - Back Button */}

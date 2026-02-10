@@ -20,16 +20,17 @@ export default function MoneyBackPlans() {
         </div>
 
         <div className="accordion-body">
-          <table>
-            <thead>
-              <tr>
-                <th>Sr. No.</th>
-                <th>Product Name</th>
-                <th>Plan No.</th>
-                <th>UIN No.</th>
-                <th>Action</th>
-              </tr>
-            </thead>
+          <div className="table-scroll-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sr. No.</th>
+                  <th>Product Name</th>
+                  <th>Plan No.</th>
+                  <th>UIN No.</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
             <tbody>
               {plans.map((p, idx) => (
                 <tr key={p.sr} className={idx % 2 === 0 ? "row-alt" : ""}>
@@ -46,6 +47,7 @@ export default function MoneyBackPlans() {
           </table>
         </div>
       </div>
+    </div>
     </div>
   );
 }

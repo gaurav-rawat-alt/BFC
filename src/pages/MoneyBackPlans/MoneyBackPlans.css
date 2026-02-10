@@ -47,10 +47,16 @@
   background: #ffffff;
 }
 
+.table-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
   font-size: 14px;
+  min-width: 600px;
 }
 
 thead th {
@@ -88,4 +94,48 @@ tbody td {
 .know-more-btn:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(31, 79, 163, 0.3);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .table-scroll-wrapper {
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+  }
+  
+  .table-scroll-wrapper::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .table-scroll-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  .table-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+  }
+  
+  .table-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+  }
+  
+  table {
+    min-width: 700px;
+  }
+  
+  thead th {
+    white-space: nowrap;
+    min-width: 100px;
+  }
+  
+  tbody td {
+    white-space: nowrap;
+  }
+  
+  .know-more-btn {
+    white-space: nowrap;
+    min-width: 80px;
+  }
 }

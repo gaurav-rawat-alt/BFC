@@ -23,30 +23,32 @@ export default function TermAssurancePlans() {
         </div>
 
         <div className="accordion-body">
-          <table>
-            <thead>
-              <tr>
-                <th>Sr. No.</th>
-                <th>Product Name</th>
-                <th>Plan No.</th>
-                <th>UIN No.</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {plans.map((p, idx) => (
-                <tr key={p.sr} className={idx % 2 === 0 ? "row-alt" : ""}>
-                  <td>{p.sr}</td>
-                  <td>{p.name}</td>
-                  <td>{p.planNo}</td>
-                  <td>{p.uin}</td>
-                  <td>
-                    <button className="know-more-btn">Know More</button>
-                  </td>
+          <div className="table-scroll-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Sr. No.</th>
+                  <th>Product Name</th>
+                  <th>Plan No.</th>
+                  <th>UIN No.</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {plans.map((p, idx) => (
+                  <tr key={p.sr} className={idx % 2 === 0 ? "row-alt" : ""}>
+                    <td>{p.sr}</td>
+                    <td>{p.name}</td>
+                    <td>{p.planNo}</td>
+                    <td>{p.uin}</td>
+                    <td>
+                      <button className="know-more-btn">Know More</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

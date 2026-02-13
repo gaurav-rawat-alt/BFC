@@ -68,9 +68,7 @@ const About = ({
               </ul>
             </div>
 
-            <div>
-              <ContactForm />
-            </div>
+          
 
             {/* Bottom Section - Back Button */}
             <div className="pt-6 border-t border-gray-200">

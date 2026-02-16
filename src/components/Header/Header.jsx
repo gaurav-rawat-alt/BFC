@@ -86,8 +86,21 @@ const Header = () => {
 
   return (
     <>
-    <header className="bg-white border-b border-gray-200">
-       <div className="px-4 lg:px-8 py-3 flex items-center justify-between">
+      <header className="bg-white border-b border-gray-200 relative">
+        <div className="px-2 sm:px-4 lg:px-8 py-2 sm:py-3 flex items-center justify-between">
+          {/* Logo Section */}
+          <div className="flex items-center justify-center lg:justify-start flex-1 lg:flex-initial">
+            <img 
+              src="/images/BFC.jpg" 
+              alt="Brilliant Financial Consultant" 
+              className="h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 w-auto object-contain max-w-[70vw] lg:max-w-none"
+              onError={(e) => {
+                // Fallback to original image if header image fails
+                e.target.src = "/images/BFC.jpg";
+              }}
+            />
+          </div>
+
           {/* Desktop Menu */}
           <nav className="hidden lg:flex items-center gap-6 relative">
             {menu.map((item, i) => (

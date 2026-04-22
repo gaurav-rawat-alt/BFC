@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { ContactModalContext } from '../../App';
 
 const SearchByCategory = () => {
+  const { openContactModal } = useContext(ContactModalContext);
   const categories = [
     {
       title: 'Insurance Plans',
@@ -63,7 +65,8 @@ const SearchByCategory = () => {
             <h2 className="text-2xl lg:text-3xl font-bold text-white">
               Search by category
             </h2>
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors lg:hidden">
+            <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors lg:hidden"  onClick={openContactModal}>
+              
               Buy Plan
             </button>
           </div>
@@ -139,7 +142,7 @@ const SearchByCategory = () => {
                   <h3 className="text-xl font-bold text-blue">
                     Other Online Services
                   </h3>
-                  <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+                  <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors" onClick={openContactModal}>
                     Buy Plan
                   </button>
                 </div>
@@ -166,7 +169,7 @@ const SearchByCategory = () => {
               <h3 className="text-xl font-bold text-blue">
                 Other Online Services
               </h3>
-              <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-4 py-2 rounded-lg text-sm font-semibold transition-colors" onClick={openContactModal}>
                 Buy Plan
               </button>
             </div>

@@ -80,9 +80,14 @@ const Footer = () => {
     <footer className="bg-gray-50 border-t border-gray-200 text-gray-600">
       {/* Top Contact Bar */}
       <div className="bg-white border-b border-gray-200">
-        <div className="container mx-auto px-4 py-3 flex flex-wrap items-center justify-center gap-6 text-sm">
+        <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2 sm:gap-6 text-sm text-center">
           {topLinks.map((link, i) => (
-            <a key={i} href="#" className="flex items-center gap-2 hover:text-[#0B5394] transition">
+            <a
+              key={i}
+              href="#"
+              className="flex items-center justify-center gap-2 hover:text-[#0B5394] transition w-full sm:w-auto py-2 sm:py-0"
+              style={{ minWidth: 0 }}
+            >
               <span className="text-base">{link.icon}</span> {link.text}
             </a>
           ))}
@@ -90,7 +95,7 @@ const Footer = () => {
       </div>
 
       {/* Footer Columns */}
-      <div className="container mx-auto px-4 py-12">
+      {/* <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8">
           {Object.values(footerLinks).map((column, colIndex) => (
             <ul key={colIndex} className="space-y-2">
@@ -113,7 +118,7 @@ const Footer = () => {
             </ul>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Disclaimer */}
       <div className="bg-gray-100 border-t border-gray-200 py-3 text-center text-xs text-gray-500">

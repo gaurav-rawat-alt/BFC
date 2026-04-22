@@ -97,9 +97,11 @@
 // export default CalculatorSection;
 
 
-import React from "react";
+import React, { useContext } from "react";
+import { ContactModalContext } from '../../App';
 
 function CalculatorSection() {
+  const { openContactModal } = useContext(ContactModalContext);
   return (
     <section className="w-full bg-gradient-to-br from-gray-50 to-gray-100 py-12 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -136,7 +138,7 @@ function CalculatorSection() {
 
               <div className="mt-auto pt-6">
                 <button
-                  onClick={() => console.log("Navigate to Coverage Calculator")}
+                  onClick={openContactModal}
                   className="w-full md:w-auto flex items-center justify-center md:justify-start gap-2 text-blue-700 font-semibold text-sm md:text-[16px] hover:text-blue-900 transition-colors group/btn"
                 >
                   <span>Discuss Coverage</span>
@@ -167,7 +169,7 @@ function CalculatorSection() {
 
               <div className="mt-auto pt-6">
                 <button
-                  onClick={() => console.log("Navigate to Premium Calculator")}
+                  onClick={openContactModal}
                   className="w-full md:w-auto flex items-center justify-center md:justify-start gap-2 text-blue-700 font-semibold text-sm md:text-[16px] hover:text-blue-900 transition-colors group/btn"
                 >
                   <span>Discuss Premium</span>

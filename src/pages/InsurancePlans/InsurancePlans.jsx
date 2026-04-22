@@ -1,4 +1,6 @@
 import "./InsurancePlans.css";
+import React, {useContext} from 'react';
+import { ContactModalContext } from '../../App';
 
 const plans = [
   { sr: 1, name: "LIC's Single Premium Endowment Plan", planNo: 717, uin: "512N283V03" },
@@ -14,6 +16,7 @@ const plans = [
 ];
 
 export default function InsurancePlans() {
+  const { openContactModal } = useContext(ContactModalContext);
   return (
     <div className="insurance-wrapper">
       <h2 className="page-title">Insurance Plans</h2>
@@ -51,7 +54,7 @@ export default function InsurancePlans() {
                   <td>{p.planNo}</td>
                   <td>{p.uin}</td>
                   <td>
-                    <button className="know-more-btn">Know More</button>
+                    <button className="know-more-btn" onClick={openContactModal}>Know More</button>
                   </td>
                 </tr>
               ))}

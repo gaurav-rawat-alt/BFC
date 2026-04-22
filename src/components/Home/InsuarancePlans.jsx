@@ -128,9 +128,9 @@ const InsurancePlans = () => {
                   <p key={i} className="text-sm mb-2">• {f}</p>
                 ))}
               </div>
-             <div className="mt-4 flex flex-col md:flex-row gap-3">
+             <div className="mt-6 flex flex-wrap gap-3 items-center">
               <button
-                className="mt-4 bg-[#003D82] text-white py-2 rounded"
+               className="bg-[#003D82] text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-[#002f66] transition"
                 onClick={() => {
                   if (plan.name === 'Jeevan Utsav') {
                     setActivePDF('/pdf/102268-%20Jeevan%20Utsav%20Sales%20Brochure_WEB%20PDF.pdf');
@@ -148,7 +148,7 @@ const InsurancePlans = () => {
                 Details
               </button>
               <button
-                  className="bg-gray-200 text-[#003D82] py-2 rounded border border-[#003D82] font-semibold"
+                  className="bg-white text-[#003D82] px-5 py-2.5 rounded-md border border-[#003D82] text-sm font-medium hover:bg-[#003D82] hover:text-white transition"
                   onClick={() => openContactModal()}
                 >
                   Buy Plan

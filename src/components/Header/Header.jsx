@@ -86,19 +86,20 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
-        <div className="px-2 sm:px-4 lg:px-8 py-2 sm:py-3 flex items-center justify-between">
+      <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-50 via-white to-blue-50 border-b border-gray-200">
+        <div className="px-2 sm:px-4 lg:px-8 py-1 sm:py-2 flex items-center justify-between">
           {/* Logo Section */}
-          <div className="flex items-center justify-center lg:justify-start flex-1 lg:flex-initial">
+          <div className="flex flex-col items-center justify-center lg:justify-start flex-1 lg:flex-initial">
             <img 
-              src="/images/BFC.jpg" 
+              src="/images/Logo.png" 
               alt="Brilliant Financial Consultant" 
-              className="h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 w-auto object-contain max-w-[70vw] lg:max-w-none"
-              onError={(e) => {
-                // Fallback to original image if header image fails
-                e.target.src = "/images/BFC.jpg";
-              }}
+              className="h-12 sm:h-14 md:h-18 lg:h-22 w-auto object-contain"
             />
+
+            {/* Tagline BELOW logo */}
+            <p className="text-[11px] sm:text-xs font-medium text-blue-700 mt-0.5 whitespace-nowrap tracking-wide">
+              Authorized LIC Advisor | Trusted Financial Guidance
+            </p>
           </div>
 
           {/* Desktop Menu */}

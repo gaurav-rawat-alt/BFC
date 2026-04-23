@@ -71,8 +71,8 @@ const Footer = () => {
 
   const topLinks = [
     { icon: "📞", text: "Contact Us" },
-    { icon: "📞", text: "+91-22-68276827" },
-    { icon: "💬", text: "+91-8976862090" },
+    { icon: "💬", text: "+919873999199" },
+    { icon: "📞", text: "+91-8976862090" },
     { icon: "📍", text: "Shree ji Villa, 1123, Tirkha Colony, Sector 2, Faridabad, 121004" },
   ];
 

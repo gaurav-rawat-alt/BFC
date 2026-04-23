@@ -86,7 +86,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-white border-b border-gray-200 relative">
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="px-2 sm:px-4 lg:px-8 py-2 sm:py-3 flex items-center justify-between">
           {/* Logo Section */}
           <div className="flex items-center justify-center lg:justify-start flex-1 lg:flex-initial">

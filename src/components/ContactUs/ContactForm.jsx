@@ -1,7 +1,4 @@
-
-
 import { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
 
 const SESSION_KEY = "CONTACT_FORM_EMAIL";
 
@@ -11,53 +8,86 @@ const CommonContactForm = () => {
   const [status, setStatus] = useState("");
   const [isError, setIsError] = useState(false);
   const [blocked, setBlocked] = useState(false);
+  const [startTime] = useState(Date.now()); // ⏱️ bot detection
 
   // Check session on load
   useEffect(() => {
     const sentEmail = sessionStorage.getItem(SESSION_KEY);
     if (sentEmail) {
       setBlocked(true);
-      setStatus(
-        "You have already submitted a message in this session."
-      );
+      setStatus("You have already submitted a message in this session.");
     }
   }, []);
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
 
     if (blocked) return;
 
-    const email = formRef.current.user_email.value;
+    // ⏱️ time-based bot protection
+    if (Date.now() - startTime < 3000) {
+      setStatus("You're too fast. Please try again.");
+      setIsError(true);
+      return;
+    }
+
+    const formData = new FormData(formRef.current);
+
+   const payload = {
+    name: formData.get("user_name"),
+    contact: formData.get("user_contact"),
+    email: formData.get("user_email") || "",
+    message: formData.get("message") || "",
+    company: formData.get("company") || "",
+  };
+
+    if (!payload.name || !payload.contact) {
+    setStatus("Name and mobile number are required.");
+    setIsError(true);
+    return;
+  }
+
+  // basic mobile validation (India-friendly)
+  if (!/^[6-9]\d{9}$/.test(payload.contact)) {
+    setStatus("Enter a valid 10-digit mobile number.");
+    setIsError(true);
+    return;
+  }
 
     setLoading(true);
     setStatus("");
     setIsError(false);
 
-    emailjs
-      .sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
-      )
-      .then(() => {
-        // Store email in session
-        sessionStorage.setItem(SESSION_KEY, email);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
-        setBlocked(true);
-        setStatus(
-          "Message sent successfully."
-        );
+      const data = await res.json();
 
-        formRef.current.reset();
-      })
-      .catch((error) => {
-        console.error("EmailJS Error:", error);
-        setStatus("Something went wrong. Please try again.");
-        setIsError(true);
-      })
-      .finally(() => setLoading(false));
+      if (!res.ok) {
+        if (res.status === 429) {
+          throw new Error("Too many attempts. Please try again later.");
+        }
+        throw new Error(data.message || "Something went wrong.");
+      }
+
+      // success
+      sessionStorage.setItem(SESSION_KEY, payload.email);
+      setBlocked(true);
+      setStatus("Message sent successfully.");
+      formRef.current.reset();
+
+    } catch (err) {
+      setStatus(err.message || "Something went wrong.");
+      setIsError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -76,6 +106,9 @@ const CommonContactForm = () => {
             Fill in the form and we’ll respond shortly.
           </p>
         </div>
+
+        {/* 🛡️ Honeypot (hidden) */}
+        <input type="text" name="company" className="hidden" />
 
         {/* Fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -99,7 +132,6 @@ const CommonContactForm = () => {
             <input
               type="email"
               name="user_email"
-              required
               disabled={blocked}
               className="w-full rounded-lg border px-4 py-2.5"
             />
@@ -126,7 +158,6 @@ const CommonContactForm = () => {
           <textarea
             name="message"
             rows="5"
-            required
             disabled={blocked}
             className="w-full rounded-lg border px-4 py-2.5 resize-none"
           />
@@ -137,7 +168,7 @@ const CommonContactForm = () => {
           <button
             type="submit"
             disabled={loading || blocked}
-            className={`rounded-lg px-6 py-2.5 font-semibold text-white cursor-pointer
+            className={`rounded-lg px-6 py-2.5 font-semibold text-white
               ${
                 blocked
                   ? "bg-gray-400 cursor-not-allowed"
@@ -146,7 +177,11 @@ const CommonContactForm = () => {
                   : "bg-blue-600 hover:bg-blue-700"
               }`}
           >
-            {blocked ? "Message Already Sent" : loading ? "Sending..." : "Send Message"}
+            {blocked
+              ? "Message Already Sent"
+              : loading
+              ? "Sending..."
+              : "Send Message"}
           </button>
 
           {status && (
